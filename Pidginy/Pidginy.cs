@@ -48,7 +48,7 @@ namespace Pidginy
 
             foreach(Buddy buddy in buddies) {
                 resultsList.Add(m_catItemFactory.createCatItem(
-                    buddy.Name, buddy.Alias, getID(), buddy.HasIcon ? buddy.Icon : m_icon));
+                    buddy.Protocol+":"+buddy.Name, buddy.Alias, getID(), buddy.HasIcon ? buddy.Icon : m_icon));
             }
         }
 
@@ -59,8 +59,11 @@ namespace Pidginy
         public void launchItem(List<IInputData> inputDataList, ICatItem item)
         {
             ICatItem catItem = inputDataList[inputDataList.Count - 1].getTopResult();
-            /// todo: make a more comprehensive list of protocols
-            System.Diagnostics.Process.Start("xmpp:" + catItem.getFullPath());
+
+            char[] seperator = { ':' };
+            string[] namePair = catItem.getFullPath().Split(seperator, 2);
+
+            ProtocolLauncher.getInstance().Launch(namePair[0], namePair[1]);
         }
 
         public bool hasDialog()

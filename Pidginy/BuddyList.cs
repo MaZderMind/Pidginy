@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Xml;
 
 namespace Pidginy
 {
     class Buddy
     {
-        private string group, name, alias, icon;
+        private string group, name, alias, icon, protocol;
 
-        public Buddy(string group, string name, string alias, string icon)
+        public Buddy(string group, string name, string alias, string icon, string protocol)
         {
             this.group = group;
             this.name = name;
             this.alias = alias;
             this.icon = icon;
+            this.protocol = protocol;
         }
 
         public string Group
@@ -38,6 +38,14 @@ namespace Pidginy
             get
             {
                 return alias;
+            }
+        }
+
+        public string Protocol
+        {
+            get
+            {
+                return protocol;
             }
         }
 
@@ -79,8 +87,6 @@ namespace Pidginy
         } 
         #endregion
 
-
-
         private BuddyList()
         {
             /// todo -> move to config
@@ -99,12 +105,16 @@ namespace Pidginy
                 XmlNodeList buddies = group.SelectNodes("contact/buddy");
                 foreach (XmlNode buddy in buddies)
                 {
+                    string protocol = buddy.Attributes["proto"].Value;
+                    if (!ProtocolLauncher.getInstance().CanLaunch(protocol)) continue;
+
                     XmlNode buddyIconNode = buddy.SelectSingleNode("setting[@name='buddy_icon']");
                     this.Add(new Buddy(
                         group.Attributes["name"].Value,
                         buddy.SelectSingleNode("name").InnerText,
                         buddy.SelectSingleNode("alias").InnerText,
-                        buddyIconNode == null ? null : iconPath + buddyIconNode.InnerText
+                        buddyIconNode == null ? null : iconPath + buddyIconNode.InnerText,
+                        protocol
                     ));
                 }
             }

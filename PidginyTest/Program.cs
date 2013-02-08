@@ -12,16 +12,16 @@ namespace PidginyTest
         static void Main(string[] args)
         {
             Console.WriteLine("Creating Pidginy instantance");
-            Pidginy pidginy = new Pidginy();
+            Pidginy.Plugin pidginy = new Pidginy.Plugin();
 
             Console.WriteLine("Initing Pidginy");
             pidginy.init(new DummyPluginHost());
 
             Console.WriteLine("Pidginy successful inited: " + pidginy.getName());
 
-            Console.WriteLine("Calling Pidginy to search for 'pet'");
+            Console.WriteLine("Calling Pidginy to search for 'joch'");
             DummyCatItemList list = new DummyCatItemList();
-            pidginy.getResults(new DummyInputDataList("pet"), list);
+            pidginy.getResults(new DummyInputDataList("joch"), list);
             Console.WriteLine("Pidginy returned " + list.Count + " items");
             foreach (ICatItem item in list)
             {
@@ -46,7 +46,26 @@ namespace PidginyTest
 
         public ILaunchyPaths launchyPaths()
         {
-            throw new NotImplementedException();
+            return new DummyLaunchyPaths();
+        }
+    }
+
+    class DummyLaunchyPaths : ILaunchyPaths
+    {
+
+        public string getConfigPath()
+        {
+            return "config\\";
+        }
+
+        public string getIconsPath()
+        {
+            return "icons\\";
+        }
+
+        public string getLaunchyPath()
+        {
+            return "launchy\\";
         }
     }
 

@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuddyList.cs" />
     <Compile Include="Pidginy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

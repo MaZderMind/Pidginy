@@ -106,7 +106,7 @@ namespace Pidginy
                 foreach (XmlNode buddy in buddies)
                 {
                     string protocol = buddy.Attributes["proto"].Value;
-                    if (!ProtocolLauncher.getInstance().CanLaunch(protocol)) continue;
+                    if (!Launcher.getInstance().CanLaunch(protocol)) continue;
 
                     XmlNode buddyIconNode = buddy.SelectSingleNode("setting[@name='buddy_icon']");
                     this.Add(new Buddy(

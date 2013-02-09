@@ -63,7 +63,7 @@ namespace Pidginy
             char[] seperator = { ':' };
             string[] namePair = catItem.getFullPath().Split(seperator, 2);
 
-            ProtocolLauncher.getInstance().Launch(namePair[0], namePair[1]);
+            Launcher.getInstance().Launch(namePair[0], namePair[1]);
         }
 
         public bool hasDialog()

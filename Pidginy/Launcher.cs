@@ -2,23 +2,23 @@
 
 namespace Pidginy
 {
-    class ProtocolLauncher
+    class Launcher
     {
         #region Singleton
-        private static ProtocolLauncher theInstance;
+        private static Launcher theInstance;
 
-        public static ProtocolLauncher getInstance()
+        public static Launcher getInstance()
         {
             if (theInstance == null)
             {
-                theInstance = new ProtocolLauncher();
+                theInstance = new Launcher();
             }
 
             return theInstance;
         }
         #endregion
 
-        private ProtocolLauncher()
+        private Launcher()
         {
 
         }

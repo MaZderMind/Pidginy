@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Pidginy.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="XmlPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">%APPDATA%\.purple\blist.xml</Value>
+    </Setting>
+    <Setting Name="AvatarPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">%APPDATA%\.purple\icons\</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

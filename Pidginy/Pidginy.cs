@@ -5,7 +5,7 @@ using LaunchySharp;
 
 namespace Pidginy
 {
-    public class Plugin : IPlugin
+    public class Plugin : IPlugin, IDisposable
     {
         private LaunchySharp.IPluginHost m_pluginHost = null;
         private LaunchySharp.ICatItemFactory m_catItemFactory = null;
@@ -13,6 +13,7 @@ namespace Pidginy
 
         private string m_name = "Pidginy";
         private string m_icon;
+        private Options m_optionsDialog;
 
         public void init(LaunchySharp.IPluginHost pluginHost)
         {
@@ -68,16 +69,21 @@ namespace Pidginy
 
         public bool hasDialog()
         {
-            return false;
+            return true;
         }
 
         public IntPtr doDialog()
         {
-            return IntPtr.Zero;
+            m_optionsDialog = new Options();
+            return m_optionsDialog.Handle;
         }
 
         public void endDialog(bool acceptedByUser)
         {
+            m_optionsDialog.Hide();
+            if (acceptedByUser) m_optionsDialog.Save();
+            m_optionsDialog.Close();
+            m_optionsDialog = null;
         }
 
         public void launchyShow()
@@ -86,6 +92,11 @@ namespace Pidginy
 
         public void launchyHide()
         {
+        }
+
+        public void Dispose()
+        {
+            m_optionsDialog.Dispose();
         }
     }
 }

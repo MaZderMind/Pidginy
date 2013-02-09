@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Xml;
+using System.IO;
+using System.Windows.Forms;
 
 namespace Pidginy
 {
@@ -89,12 +91,25 @@ namespace Pidginy
 
         private BuddyList()
         {
-            /// todo -> move to config
-            string path = Environment.ExpandEnvironmentVariables("%APPDATA%\\.purple\\blist.xml");
-            string iconPath = Environment.ExpandEnvironmentVariables("%APPDATA%\\.purple\\icons\\");
+            string path = Environment.ExpandEnvironmentVariables(Properties.Settings.Default.XmlPath);
+            string iconPath = Environment.ExpandEnvironmentVariables(Properties.Settings.Default.AvatarPath);
 
             XmlDocument doc = new XmlDocument();
-            XmlTextReader reader = new XmlTextReader(path);
+            XmlTextReader reader;
+            try
+            {
+                reader = new XmlTextReader(path);
+            }
+            catch (FileNotFoundException e)
+            {
+                MessageBox.Show("File not found: " + e.FileName);
+                return;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error reaing Buddy-File (" + path + ") " + e.Message);
+                return;
+            }
 
             reader.WhitespaceHandling = WhitespaceHandling.None;
             doc.Load(reader);

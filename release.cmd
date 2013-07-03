@@ -12,6 +12,6 @@ copy /y Pidginy\bin\Release\Pidginy.dll _release\plugins
 copy /y Pidginy\Pidginy.ico _release\plugins\icons
 
 cd _release
-"C:\Program Files (x86)\7-Zip\7z.exe" a ..\release-%DATE%.zip .
+"%ProgramFiles%\7-Zip\7z.exe" a ..\release-%DATE%.zip .
 cd ..
 pause

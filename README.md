@@ -6,7 +6,7 @@ Works only with XMPP Buddy Contacts (but can possibly be extended simply).
 
 Quick Install
 -------------
-Download [the binaries](http://mazdermind.de/dl/pidginy/release-latest.zip) and unzip them into your Launcy Program folder. Restart Launchy. 
+Download [the binaries](http://mazdermind.de/dl/pidginy/release-03.07.2013.zip) and unzip them into your Launcy Program folder. Restart Launchy. 
 
 Quick Build
 -------------
@@ -16,6 +16,12 @@ Solution-Files are for VS2012 Express.
  2. Open the Solution in VS2012, Press F7
  3. Copy Pidginy\bin\Debug\Pidginy.dll to the Launcy Plugins-Folder
  4. Restart Launcy
+
+Screenshots
+-----------
+![Example of Launchy-Selection](/Screenshots/selection.png "Example of Launchy-Selection")
+![Example of Multiple matching Contacts in the Launchy-Selection](/Screenshots/multiple.png "Example of Multiple matching Contacts in the Launchy-Selection")
+![The settings dialog](/Screenshots/settings.png "The settings dialog")
 
 License
 -------

@@ -28,6 +28,9 @@ namespace PidginyTest
                 Console.WriteLine("   -> " + item.getShortName());
             }
 
+            Console.WriteLine("Launching " + list[0].getShortName());
+            pidginy.launchItem(new DummyInputDataList(list[0].getFullPath(), list[0]), list[0]);
+
             Console.ReadKey();
         }
     }
@@ -86,9 +89,11 @@ namespace PidginyTest
     class DummyInputData : IInputData
     {
         string mText;
-        public DummyInputData(string text)
+        ICatItem mItem;
+        public DummyInputData(string text, ICatItem item = null)
         {
             mText = text;
+            mItem = item;
         }
 
         public uint getID()
@@ -103,7 +108,7 @@ namespace PidginyTest
 
         public ICatItem getTopResult()
         {
-            throw new NotImplementedException();
+            return mItem;
         }
 
         public bool hasLabel(uint label)
@@ -134,9 +139,9 @@ namespace PidginyTest
 
     class DummyInputDataList : List<IInputData>
     {
-        public DummyInputDataList(string text)
+        public DummyInputDataList(string text, ICatItem item = null)
         {
-            this.Add(new DummyInputData(text));
+            this.Add(new DummyInputData(text, item));
         }
     }
 

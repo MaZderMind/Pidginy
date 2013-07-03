@@ -1,21 +1,21 @@
 Pidginy
 =======
 
-A Launcy-Plugin so start a Chat in Pidgin.
+A Launchy-Plugin so start a Chat in Pidgin.
 Works only with XMPP Buddy Contacts (but can possibly be extended simply).
 
 Quick Install
 -------------
-Download [the binaries](http://mazdermind.de/dl/pidginy/release-03.07.2013.zip) and unzip them into your Launcy Program folder. Restart Launchy. 
+Download [the binaries](http://mazdermind.de/dl/pidginy/release-03.07.2013.zip) and unzip them into your Launchy Program folder. Restart Launchy. 
 
 Quick Build
 -------------
 Solution-Files are for VS2012 Express.
 
- 1. Get [LaunchySharp-1.1.1-Bin.zip](http://sourceforge.net/projects/launchysharp/files/Launchy%23/1.1.1/LaunchySharp-1.1.1-Bin.zip/download) and extract to your Launcy Program folder (yes, overwrite QtCore4.dll)
+ 1. Get [LaunchySharp-1.1.1-Bin.zip](http://sourceforge.net/projects/launchysharp/files/Launchy%23/1.1.1/LaunchySharp-1.1.1-Bin.zip/download) and extract to your Launchy Program folder (yes, overwrite QtCore4.dll)
  2. Open the Solution in VS2012, Press F7
- 3. Copy Pidginy\bin\Debug\Pidginy.dll to the Launcy Plugins-Folder
- 4. Restart Launcy
+ 3. Copy Pidginy\bin\Debug\Pidginy.dll to the Launchy Plugins-Folder
+ 4. Restart Launchy
 
 Screenshots
 -----------

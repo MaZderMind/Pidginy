@@ -124,10 +124,12 @@ namespace Pidginy
                     if (!Launcher.getInstance().CanLaunch(protocol)) continue;
 
                     XmlNode buddyIconNode = buddy.SelectSingleNode("setting[@name='buddy_icon']");
+                    XmlNode buddyAliasNode = buddy.SelectSingleNode("alias");
+                    XmlNode buddyNameNode = buddy.SelectSingleNode("name");
                     this.Add(new Buddy(
                         group.Attributes["name"].Value,
-                        buddy.SelectSingleNode("name").InnerText,
-                        buddy.SelectSingleNode("alias").InnerText,
+                        buddyNameNode.InnerText,
+                        buddyAliasNode == null ? buddyNameNode.InnerText : buddyAliasNode.InnerText,
                         buddyIconNode == null ? null : iconPath + buddyIconNode.InnerText,
                         protocol
                     ));

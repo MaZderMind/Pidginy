@@ -6,7 +6,7 @@ Works only with XMPP Buddy Contacts (but can possibly be extended simply).
 
 Quick Install
 -------------
-Download [the binaries](http://mazdermind.de/dl/pidginy/release-03.07.2013.zip) and unzip them into your Launchy Program folder. Restart Launchy. 
+Download [the binaries](http://mazdermind.de/dl/pidginy/release-12.08.2013.zip) and unzip them into your Launchy Program folder. Restart Launchy. 
 
 Quick Build
 -------------

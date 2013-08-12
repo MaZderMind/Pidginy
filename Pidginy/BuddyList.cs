@@ -69,7 +69,8 @@ namespace Pidginy
 
         public bool Matches(string text)
         {
-            return name.Contains(text) || group.Contains(text) || alias.Contains(text);
+            text = text.ToLower();
+            return name.ToLower().Contains(text) || group.ToLower().Contains(text) || alias.ToLower().Contains(text);
         }
     }
 

@@ -136,6 +136,8 @@ namespace Pidginy
                     ));
                 }
             }
+
+            reader.Close();
         }
 
         public List<Buddy> FindMatching(string text)
